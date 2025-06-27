@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Acquisition</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #303841;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #F1F0E9;
+        }
+
+        .container {
+            background: #393E46;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px #222831;
+            width: 80%;
+            max-width: 600px;
+            text-align: center;
+        }
+
+        .add-btn {
+            display: inline-block;
+            padding: 10px 15px;
+            margin-bottom: 15px;
+            background-color: #474E68;
+            color: #F1F0E9;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .add-btn:hover {
+            background-color: #404258;
+            color: #B9B4C7;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+            color: #F1F0E9;
+        }
+
+        th, td {
+            padding: 10px;
+            border: 1px solid #474E68;
+            text-align: center;
+        }
+
+        th {
+            background-color: #474E68;
+            color: #F1F0E9;
+        }
+
+        tr:nth-child(even) {
+            background-color: #F1F0E9;
+        }
+
+        tr:hover {
+            background-color: #353a41;
+        }
+
+        .delete-btn {
+            color: #F1F0E9;
+            background-color: #c43140;
+            padding: 5px 10px;
+            text-decoration: none;
+            border-radius: 3px;
+            font-weight: bold;
+            display: inline-block;
+        }
+
+        .delete-btn:hover {
+            background-color: #b52a37;
+        }
+    </style>
+</head>
+<body>
+    <h1>Data Acquisition</h1>
+    
+    <div class="container">
+        <a href="{{ url_for('add') }}" class="add-btn">+ Add New Data</a>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Username</th>
+                    <th>Surname</th>
+                    <th>Date of Birth</th>
+                    <th>Password</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in data %}
+                <tr>
+                    <td>{{ row['id'] }}</td>
+                    <td>{{ row['username'] }}</td>
+                    <td>{{ row['surname'] }}</td>
+                    <td>{{ row['date'] }}</td>
+                    <td>{{ row['password'] }}</td>
+                    <td>
+                        <a href="{{ url_for('delete', id=row['id']) }}" class="delete-btn">Delete</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

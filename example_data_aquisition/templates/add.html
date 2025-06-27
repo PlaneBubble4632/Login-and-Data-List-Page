@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Data</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #303841;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        h1 {
+            color: #F1F0E9;
+        }
+
+        .container {
+            background: #393E46;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px #222831;
+            width: 300px;
+            text-align: center;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        label {
+            font-weight: bold;
+            text-align: left;
+            color:#F1F0E9;
+        }
+
+        input {
+            padding: 8px;
+            border: 1px solid #303841;
+            border-radius: 5px;
+            width: 95%;
+            background-color: #353a41;
+            color: #F1F0E9;
+        }
+
+        button {
+            background: #474E68;
+            color: #F1F0E9;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background: #404258;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 15px;
+            text-decoration: none;
+            color: #F1F0E9;
+            font-weight: bold;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>Login Data</h1>
+    <div class="container">
+        <form action="" method="POST">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="surname">Surname:</label>
+            <input type="text" id="surname" name="surname" required>
+
+            <label for="date">Date of Birth:</label>
+            <input type="date" id="date" name="date" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+
+            <button type="submit">Add</button>
+        </form>
+
+        <a href="{{ url_for('index') }}" class="back-link">← Back to Home</a>
+    </div>
+</body>
+</html>
