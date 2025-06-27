@@ -1,2 +1,2 @@
-Every time you close the program delete the data.db.
+Every time you stop the program delete the data.db.
 That's all ty :>
